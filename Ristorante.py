@@ -1,3 +1,12 @@
+def verifica(func):
+    
+    def wrapper(*args, **kwargs):
+        print(f"{func.__name__} è in esecuzione")
+        risultato = func(*args, **kwargs)
+        print(f"{func.__name__} è stata eseguita")
+        return risultato
+    return wrapper
+
 # classe Ristorante
 class Ristorante:
     # Inizializza il ristorante
@@ -7,29 +16,34 @@ class Ristorante:
         self.aperto = False
         self.menu = {}
     # Descrive il ristorante
+    @verifica
     def descrivi_ristorante(self):
-        print(f"Benvenuti al ristorante {self.nome}, che offre cucina {self.tipo_cucina}.")
+        print(f"Benvenuti al ristorante {self.nome}, che offre cucina {self.tipo_cucina}. JAMM JA")
     # Visualizza lo stato di apertura del ristorante
+    @verifica
     def stato_apertura(self):
         if self.aperto: 
-            print(f"Il ristorante {self.nome} è aperto ")
+            print(f"Il ristorante {self.nome} è aperto. JAMM JA ")
         else:
-            print(f"Il ristorante {self.nome} è chiuso ")
+            print(f"Il ristorante {self.nome} è chiuso. C RISPIAC ")
     # Apre il ristorante
+    @verifica
     def apri_ristorante(self):
         password = input("Inserisci la password per aprire il ristorante: ")
         if password == "maremma":# Se la password è corretta apre il ristorante
             self.aperto = True
-            print(f"Il ristorante {self.nome} è stato aperto.")
+            print(f"Il ristorante {self.nome} è stato aperto. JAMM JA")
     # Chiude il ristorante
+    @verifica
     def chiudi_ristorante(self):
         password = input("Inserisci la password per chiudere il ristorante: ")
         if password == "maremma":# Se la password è corretta chiude il ristorante
             self.aperto = False
-            print(f"Il ristorante {self.nome} è stato chiuso.")
+            print(f"Il ristorante {self.nome} è stato chiuso. JAMM JA")
         else:
             print("Password non corretta.")
     # Aggiunge un piatto al menu
+    @verifica
     def aggiungi_al_menu(self,):
         # Inserisci la password per aggiornare il menu
         password = input("Inserisci la password per chiudere il ristorante: ")
@@ -40,6 +54,7 @@ class Ristorante:
         else:# Se la password non è corretta
             print("Password non corretta.")
     # Rimuove un piatto dal menu
+    @verifica
     def rimuovi_dal_menu(self):
         # Inserisci la password per aggiornare il menu
         password = input("Inserisci la password per chiudere il ristorante: ")
@@ -53,15 +68,16 @@ class Ristorante:
         else: 
             print("Password non corretta.")
     # Stampa il menu del ristorante
+    @verifica
     def stampa_menu(self):
         print(f"Menu del ristorante {self.nome}:")
         for piatto, prezzo in self.menu.items():# Stampa nome e prezzo di ogni piatto nel menu
-            print(f"{piatto}: {prezzo}")
+            print(f"{piatto}: {prezzo:.2f}")
 
 # funzione principale per il menu del ristorante
 def menu_ristorante():
-    nome = "Fratelli Max 3"
-    tipo_cucina = "Italiana"
+    nome = "Fratelli Max 3, FOZZA NAPOLI"
+    tipo_cucina = "Napoletana"
     ristorante = Ristorante(nome, tipo_cucina)
     
     while True:
@@ -93,7 +109,7 @@ def menu_ristorante():
             case "7":
                 ristorante.stampa_menu()
             case "8":
-                print("Arrivederci!")
+                print("TORN AMBRESS!")
                 break
             case _:
                 print("Scelta non valida.")
