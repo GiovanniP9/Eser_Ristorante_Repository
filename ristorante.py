@@ -1,12 +1,12 @@
 # Esercitazione ristorante
 
 class Ristorante(): # Creazione classe Ristorante
-    menu = {} # Dizionario per menù
-    aperto = False # Ristorante di base sempre chiuso
     
-    def __init__(self, nome, tipo_cucina): # Costruttore che prende nome e tipo di cucina
+    def __init__(self, nome, tipo_cucina): # Costruttore
         self.nome = nome
         self.tipo_cucina = tipo_cucina
+        self.menu = {}      
+        self.aperto = False 
         
     # Metodi della classe
     
