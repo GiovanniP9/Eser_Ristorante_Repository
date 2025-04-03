@@ -97,5 +97,4 @@ def menu_ristorante():
                 break
             case _:
                 print("Scelta non valida.")
-
 menu_ristorante()
